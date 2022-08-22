@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#Hack to fix console output
+if ! [ -e /dev/console ] ; then
+    socat -u pty,link=/dev/console stdout &
+fi
+exec /usr/lib/systemd/systemd --show-status=1 --log-color=1 "$@"

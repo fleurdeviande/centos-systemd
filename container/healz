@@ -1,0 +1,3 @@
+#!/bin/bash
+#Simple returns exitcode 0 when system is in running state
+/usr/bin/systemctl status | grep -v grep | grep 'State' | grep 'running' &> /dev/null; echo $?
